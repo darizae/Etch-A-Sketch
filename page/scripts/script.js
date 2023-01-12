@@ -16,4 +16,4 @@ const eraserButton = document.querySelector("#eraser-button");
 const clearButton = document.querySelector("#clear-button");
 
 //Selecting grid
-const gridSpace = document.querySelector("#drawing-section");
+const gridSpace = document.querySelector("#grid");

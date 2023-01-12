@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" type="image/png" href="img/pencil-icon.png">
+    <link rel="icon" type="image/png" href="img/pencil-icon.png"> <!--https://icons8.com/icons/set/pencil-->
     <script src="scripts/script.js" defer></script>
     <title>Etch-a-Sketch</title>
 </head>
@@ -13,14 +13,14 @@
     <div id="all">
         <div id="settings-section">
             <div id="slider-container">
-                <input type="range" min="16" max="100" value="16">
+                <input id="slider" type="range" min="16" max="100" value="16">
             </div>
             <div id="drawing-options">
-                <input type="color" />
-                <button>Color Mode</button>
-                <button>Random Mode</button>
-                <button>Rainbow Mode</button>
-                <button>Shadow Mode</button>
+                <input id="color-picker" type="color"/>
+                <button id="color-button" >Color Mode</button>
+                <button id="random-button">Random Mode</button>
+                <button id="rainbow-button">Rainbow Mode</button>
+                <button id="shadow-button">Shadow Mode</button>
             </div>
             <div id="erasing-options">
                 <button id="eraser-button">Eraser</button>
@@ -28,7 +28,9 @@
             </div>
         </div>
         <div id="drawing-section">
+            <div id="grid">
 
+            </div>
         </div>
     </div>
 </body>

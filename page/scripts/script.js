@@ -156,11 +156,23 @@ function updateColor(color) {
   colorPicker.style.borderColor = color;
 }
 
+function buildClearButton() {
+  clearButton.addEventListener("click", () => {
+    Array.from(gridSpace.children).forEach(gridDiv => {
+      erase(gridDiv);
+    })  
+    clearButton.classList.add("toggled");
+  });
 
- 
+  clearButton.addEventListener("transitionend", () => {
+    clearButton.classList.remove("toggled");
+  });
+}
+
+buildClearButton();
+
 /**
  * To Do's: 
- * - Implement eraser, like coloring but with color white
  * - Clear canvas -> sets background color of all grid divs to white
  * - Style slider
  * - Implement slider input listener, clears and recalculates grid

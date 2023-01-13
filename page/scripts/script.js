@@ -1,5 +1,6 @@
 
 //Selecting slider
+const sizeLabel = document.querySelector("#size-label");
 const gridSlider = document.querySelector("#slider");
 
 //Selecting color picker
@@ -170,11 +171,18 @@ function buildClearButton() {
 }
 
 buildClearButton();
+buildSlider();
+
+function buildSlider() {
+  updateSizeLabel();
+}
+
+function updateSizeLabel() {
+  sizeLabel.innerHTML = `${gridSize}x${gridSize}`;
+}
 
 /**
- * To Do's: 
- * - Clear canvas -> sets background color of all grid divs to white
- * - Style slider
+ * To Do's:   
  * - Implement slider input listener, clears and recalculates grid
  * - Add a toggle that activates the grid having individual pixel delimitation
  * - This should be able to be activated by user

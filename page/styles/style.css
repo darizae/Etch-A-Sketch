@@ -108,18 +108,16 @@ body {
     background: #F6F9FE;
     color: black;
   }
-  
-  button:active {
+
+  .toggled {
     box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
     outline: none;
-  }
-  
-  .toggled {
-    outline: none;
     border: 2px solid black;
-    background-color: black;
-    color: white;
+    background-color: black !important;
+    color: white !important;
   }
+
+
   
   
   

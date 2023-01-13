@@ -132,20 +132,16 @@ function buildColorPicker() {
 buildSettingsButtons();
 
 function buildSettingsButtons() {
-  colorButton.addEventListener("click", () => {
-    paintMode = 0;
-  });
+  const buttons = [colorButton, randomButton, rainbowButton, shadowButton];
 
-  randomButton.addEventListener("click", () => {
-    paintMode = 1;
-  });
-
-  rainbowButton.addEventListener("click", () => {
-    paintMode = 2;
-  });
-
-  shadowButton.addEventListener("click", () => {
-    paintMode = 3;
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      buttons.forEach(function(btn) {
+        btn.classList.remove("toggled");
+      });
+      button.classList.add("toggled");
+      paintMode = buttons.indexOf(button);
+    });
   });
 }
 

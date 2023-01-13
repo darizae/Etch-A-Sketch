@@ -5,10 +5,13 @@ const gridSlider = document.querySelector("#slider");
 //Selecting color picker
 const colorPicker = document.querySelector("#color-picker");
 var paintMode = 0; //color mode by default
+
 var currentColor = colorPicker.value;
 
 const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 var currentRainbowColor = 0;
+
+var currentShadowColor = "rgb(255, 255, 255)";
 
 //Selecting settings section buttons
 const colorButton = document.querySelector("#color-button");
@@ -58,6 +61,27 @@ function buildGrid() {
     return rainbowColors[currentRainbowColor];
   }
 
+  function addBlack() {
+    // Get the current RGB values
+    var colors = currentShadowColor.match(/\d+/g);
+  
+    // Decrease the RGB values by 90%
+    var newRGB = colors.map(function(color) {
+      return Math.round(color * 0.9);
+    });
+  
+    // Update the currentShadowColor variable with the new RGB values
+    currentShadowColor = "rgb(" + newRGB.join(", ") + ")";
+  
+    // Check if all the color values are less than or equal to 5
+    if(colors.every(function(color) {
+      return color <= 5;
+    })) {
+      // If all the color values are less than or equal to 5, reset the color to white
+      currentShadowColor = "rgb(255, 255, 255)";
+    }
+  }
+
   function paintColorMode(div) {
     div.style.backgroundColor = currentColor;
   }
@@ -69,11 +93,11 @@ function buildGrid() {
   function paintRainbowMode(div) {
     div.style.backgroundColor = generateRainbowColor();
     currentRainbowColor = (currentRainbowColor == (rainbowColors.length-1)) ? 0 : currentRainbowColor+1;
-
   }
   
   function paintShadowMode(div) {
-    console.log("Shadow mode");
+    div.style.backgroundColor = currentShadowColor;
+    addBlack();
   }
 
   function paint(div) {
@@ -135,6 +159,7 @@ function updateColor(color) {
  
 /**
  * To Do's: 
+ * - Implement painting modes
  * - Implement eraser, like coloring but with color white
  * - Clear canvas -> sets background color of all grid divs to white
  * - Style slider

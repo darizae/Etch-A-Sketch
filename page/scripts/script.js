@@ -46,6 +46,7 @@ function buildGrid() {
     for (var i = 0; i < (gridSize**2); i++) {
       var newDiv = document.createElement("div");
       newDiv.classList.add("gridDiv");
+      if (viewGridToggle.checked) newDiv.classList.add("borderedDiv");
       addMouseListeners(newDiv)
 
       gridSpace.appendChild(newDiv);

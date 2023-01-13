@@ -114,6 +114,7 @@ body {
   
   #drawing-section {
     flex: 2; /* take up 2 parts of the available space */
+    cursor: url("../img/pencil-icon.png"), auto;
   }
   
   #settings-section {

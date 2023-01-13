@@ -102,9 +102,15 @@ body {
   }
 
   #size-label {
+    margin-left: 20px;
+  }
+
+  #aboveSlider {
+    display: flex;
     color: white;
     font-weight: bold;
   }
+
   
   #drawing-section {
     flex: 2; /* take up 2 parts of the available space */
@@ -160,11 +166,10 @@ body {
 
   .gridDiv {
     background-color: white;
-    border: 1px solid #ccc;
   }
 
-  .colored-div {
-    
+  .borderedDiv {
+    border: 1px solid #ccc;
   }
   
   button {

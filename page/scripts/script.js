@@ -1,5 +1,7 @@
 
 //Selecting slider
+const viewGridToggle = document.querySelector("#toggle");
+
 const sizeLabel = document.querySelector("#size-label");
 const gridSlider = document.querySelector("#slider");
 
@@ -194,12 +196,32 @@ function clearGrid() {
   }
 }
 
+function addBorders() {
+  Array.from(gridSpace.children).forEach(gridDiv => {
+    gridDiv.classList.add("borderedDiv");
+  }); 
+}
+
+function removeBorders() {
+  Array.from(gridSpace.children).forEach(gridDiv => {
+    gridDiv.classList.remove("borderedDiv");
+  });
+}
+
+buildToggle();
+
+function buildToggle() {
+  viewGridToggle.addEventListener("change", function() {
+    if (this.checked) {
+        addBorders();
+    } else {
+        removeBorders();
+    }
+});
+}
+
 /**
  * To Do's:   
- * - Implement text field for giving in desired grid dimension
- * - Add a toggle that activates the grid having individual pixel delimitation
- * - This should be able to be activated by user
- * - Activated when changing grid's dimensions -> deactivated upon starting to draw (not if the toggle is currently user-activated)
  * - Make mouse icon change when in grid space
  */
   

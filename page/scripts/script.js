@@ -32,8 +32,7 @@ const gridSpace = document.querySelector("#grid");
 //Default grid size is 16x16
 var gridSize = gridSlider.value;
 
-buildGrid();
-buildColorPicker();
+
 
 function buildGrid() {
   
@@ -135,10 +134,8 @@ function buildColorPicker() {
   updateColor(colorPicker.value);
   colorPicker.addEventListener('input', (event) => {
     updateColor(event.target.value);
-});
-
-
-buildSettingsButtons();
+  });
+}
 
 function buildSettingsButtons() {
   const buttons = [colorButton, randomButton, rainbowButton, shadowButton, eraserButton];
@@ -173,9 +170,6 @@ function buildClearButton() {
   });
 }
 
-buildClearButton();
-buildSlider();
-
 function buildSlider() {
   updateSizeLabel();
 
@@ -209,7 +203,7 @@ function removeBorders() {
   });
 }
 
-buildToggle();
+
 
 function buildToggle() {
   viewGridToggle.addEventListener("change", function() {
@@ -221,10 +215,12 @@ function buildToggle() {
 });
 }
 
-/**
- * To Do's:   
- * - Make mouse icon change when in grid space
- */
+buildGrid();
+buildColorPicker();
+buildToggle();
+buildClearButton();
+buildSlider();
+buildSettingsButtons();
   
-}
+
 

@@ -44,6 +44,29 @@ function buildGrid() {
     }
   }
 
+  function generateRandomRGB() {
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+  }
+
+  function paintColorMode(div) {
+    div.style.backgroundColor = currentColor;
+  }
+  
+  function paintRandomMode(div) {
+    div.style.backgroundColor = generateRandomRGB();
+  }
+  
+  function paintRainbowMode(div) {
+    console.log("Rainbow mode");
+  }
+  
+  function paintShadowMode(div) {
+    console.log("Shadow mode");
+  }
+
   function paint(div) {
     switch (paintMode) {
       case 0: paintColorMode(div); break;
@@ -51,22 +74,6 @@ function buildGrid() {
       case 2: paintRainbowMode(div); break;
       case 3: paintShadowMode(div); break;
     }
-  }
-
-  function paintColorMode(div) {
-    div.style.backgroundColor = currentColor;
-  }
-
-  function paintRandomMode(div) {
-    console.log("Random mode");
-  }
-
-  function paintRainbowMode(div) {
-    console.log("Rainbow mode");
-  }
-
-  function paintShadowMode(div) {
-    console.log("Shadow mode");
   }
 
 function addMouseListeners(gridDiv) {
@@ -88,6 +95,7 @@ function buildColorPicker() {
     updateColor(event.target.value);
 });
 
+
 buildSettingsButtons();
 
 function buildSettingsButtons() {
@@ -108,25 +116,24 @@ function buildSettingsButtons() {
   });
 }
 
-
-
-
 function updateColor(color) {
   currentColor = color;
   colorPicker.style.backgroundColor = color;
   colorPicker.style.borderColor = color;
 }
+
+
+ 
 /**
- * To Do's:
- * - Upon newDiv creation (make its own function), the assigned background color style depends on the current variable, depending on it a switch function calls the function that generates that color
- * - Make mouse icon change when in grid space
+ * To Do's: 
  * - Implement eraser, like coloring but with color white
  * - Clear canvas -> sets background color of all grid divs to white
  * - Style slider
  * - Implement slider input listener, clears and recalculates grid
- * - Add a toggle that activates the grid having individual pixel delimination
+ * - Add a toggle that activates the grid having individual pixel delimitation
  * - This should be able to be activated by user
  * - Activated when changing grid's dimensions -> deactivated upon starting to draw (not if the toggle is currently user-activated)
+ * - Make mouse icon change when in grid space
  */
   
 }

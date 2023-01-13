@@ -175,15 +175,28 @@ buildSlider();
 
 function buildSlider() {
   updateSizeLabel();
+
+  gridSlider.addEventListener("input", function(){
+    gridSize = this.value;
+    updateSizeLabel();
+    clearGrid();
+    buildGrid();
+  });
 }
 
 function updateSizeLabel() {
   sizeLabel.innerHTML = `${gridSize}x${gridSize}`;
 }
 
+function clearGrid() {
+  while (gridSpace.firstChild) {
+    gridSpace.removeChild(gridSpace.firstChild);
+  }
+}
+
 /**
  * To Do's:   
- * - Implement slider input listener, clears and recalculates grid
+ * - Implement text field for giving in desired grid dimension
  * - Add a toggle that activates the grid having individual pixel delimitation
  * - This should be able to be activated by user
  * - Activated when changing grid's dimensions -> deactivated upon starting to draw (not if the toggle is currently user-activated)

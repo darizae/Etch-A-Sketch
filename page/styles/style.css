@@ -48,9 +48,22 @@ body {
   }
 
   #grid {
+    display: grid;
     height: 500px;
     width: 500px;
     background-color: white;
+    box-shadow: 2px 2px 2px #888888;
+  }
+
+  .gridDiv {
+    
+    background-color: #eee;
+    border: 1px solid #ccc;
+    
+  }
+
+  .colored-div {
+    background-color: yellow;
   }
   
   button {

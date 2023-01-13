@@ -4,6 +4,7 @@ const gridSlider = document.querySelector("#slider");
 
 //Selecting color picker
 const colorPicker = document.querySelector("#color-picker");
+var paintMode = 0; //color mode by default
 var currentColor = colorPicker.value;
 
 //Selecting settings section buttons
@@ -43,16 +44,40 @@ function buildGrid() {
     }
   }
 
+  function paint(div) {
+    switch (paintMode) {
+      case 0: paintColorMode(div); break;
+      case 1: paintRandomMode(div); break;
+      case 2: paintRainbowMode(div); break;
+      case 3: paintShadowMode(div); break;
+    }
+  }
+
+  function paintColorMode(div) {
+    div.style.backgroundColor = currentColor;
+  }
+
+  function paintRandomMode(div) {
+    console.log("Random mode");
+  }
+
+  function paintRainbowMode(div) {
+    console.log("Rainbow mode");
+  }
+
+  function paintShadowMode(div) {
+    console.log("Shadow mode");
+  }
+
 function addMouseListeners(gridDiv) {
     gridDiv.addEventListener("click", (e) => {
-        gridDiv.classList.add("colored-div");
+      paint(gridDiv);
       });
     
     //Add hover event
     gridDiv.addEventListener("mouseover", (e) => {
-        console.log("mouse hover");
         if (e.buttons === 1) {
-            gridDiv.classList.add("colored-div");
+          paint(gridDiv);
         }
     });  
 }
@@ -63,6 +88,29 @@ function buildColorPicker() {
     updateColor(event.target.value);
 });
 
+buildSettingsButtons();
+
+function buildSettingsButtons() {
+  colorButton.addEventListener("click", () => {
+    paintMode = 0;
+  });
+
+  randomButton.addEventListener("click", () => {
+    paintMode = 1;
+  });
+
+  rainbowButton.addEventListener("click", () => {
+    paintMode = 2;
+  });
+
+  shadowButton.addEventListener("click", () => {
+    paintMode = 3;
+  });
+}
+
+
+
+
 function updateColor(color) {
   currentColor = color;
   colorPicker.style.backgroundColor = color;
@@ -70,13 +118,6 @@ function updateColor(color) {
 }
 /**
  * To Do's:
- * - Style color picker, preferably to a circle
- * - Get value of color picker in JS
- * - Refactor so color assignment is done from a variable in script, remove CSS rule    for coloring
- * - Keep colored-class there for future use
- * - Create numerical values for each coloring mode
- * - Based on selected button, a variable is assigned the button's corresponding int
- * - Current assigning color should be equal to color picker's value by default (0)
  * - Upon newDiv creation (make its own function), the assigned background color style depends on the current variable, depending on it a switch function calls the function that generates that color
  * - Make mouse icon change when in grid space
  * - Implement eraser, like coloring but with color white

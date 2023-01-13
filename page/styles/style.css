@@ -64,14 +64,12 @@ body {
   }
 
   .gridDiv {
-    
     background-color: #eee;
     border: 1px solid #ccc;
-    
   }
 
   .colored-div {
-    background-color: yellow;
+    
   }
   
   button {

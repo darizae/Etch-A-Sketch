@@ -19,7 +19,15 @@ body {
   #settings-section {
     flex: 1; /* take up 1 part of the available space */
   } 
-  
+
+
+#color-picker {
+  box-shadow: 2px 2px 2px #888888;
+  border-radius: 50%;
+  border: 26px solid black;
+}
+
+
   #settings-section > div,
   #drawing-section {
     display: flex;

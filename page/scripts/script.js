@@ -100,12 +100,17 @@ function buildGrid() {
     addBlack();
   }
 
+  function erase(div) {
+    div.style.backgroundColor = "white";
+  }
+
   function paint(div) {
     switch (paintMode) {
       case 0: paintColorMode(div); break;
       case 1: paintRandomMode(div); break;
       case 2: paintRainbowMode(div); break;
       case 3: paintShadowMode(div); break;
+      case 4: erase(div); break;
     }
   }
 
@@ -132,7 +137,7 @@ function buildColorPicker() {
 buildSettingsButtons();
 
 function buildSettingsButtons() {
-  const buttons = [colorButton, randomButton, rainbowButton, shadowButton];
+  const buttons = [colorButton, randomButton, rainbowButton, shadowButton, eraserButton];
 
   buttons.forEach(function(button) {
     button.addEventListener("click", function() {
@@ -155,7 +160,6 @@ function updateColor(color) {
  
 /**
  * To Do's: 
- * - Implement painting modes
  * - Implement eraser, like coloring but with color white
  * - Clear canvas -> sets background color of all grid divs to white
  * - Style slider

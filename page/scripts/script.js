@@ -7,6 +7,9 @@ const colorPicker = document.querySelector("#color-picker");
 var paintMode = 0; //color mode by default
 var currentColor = colorPicker.value;
 
+const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+var currentRainbowColor = 0;
+
 //Selecting settings section buttons
 const colorButton = document.querySelector("#color-button");
 const randomButton = document.querySelector("#random-button");
@@ -51,6 +54,10 @@ function buildGrid() {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 
+  function generateRainbowColor() {
+    return rainbowColors[currentRainbowColor];
+  }
+
   function paintColorMode(div) {
     div.style.backgroundColor = currentColor;
   }
@@ -60,7 +67,9 @@ function buildGrid() {
   }
   
   function paintRainbowMode(div) {
-    console.log("Rainbow mode");
+    div.style.backgroundColor = generateRainbowColor();
+    currentRainbowColor = (currentRainbowColor == (rainbowColors.length-1)) ? 0 : currentRainbowColor+1;
+
   }
   
   function paintShadowMode(div) {
